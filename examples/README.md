@@ -91,7 +91,7 @@ This roadmap outlines the learning and implementation path using LangGraph, from
 - 3.11.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/multi_agent/)
 - 3.11.2. [Build multi-agent systems](https://langchain-ai.github.io/langgraph/how-tos/multi_agent/)
 
-### 3.12 Functional AP
+### 3.12 Functional API
 
 - 3.11.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/functional_api/)
 - 3.11.2. [Build multi-agent systems](https://langchain-ai.github.io/langgraph/how-tos/use-functional-api/)
