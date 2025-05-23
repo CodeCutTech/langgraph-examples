@@ -1,0 +1,15 @@
+[project]
+name = "langgraph-examples"
+version = "0.1.0"
+description = "Examples for library LangGraph"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph>=0.4.5",
+    "prompt-toolkit>=3.0.51",
+    "pydantic>=2.11.5",
+    "pydantic-ai>=0.2.6",
+    "python-dotenv>=1.1.0",
+    "rich>=14.0.0",
+    "textual>=3.2.0",
+]
