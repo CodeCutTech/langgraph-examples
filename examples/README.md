@@ -45,31 +45,56 @@ This roadmap outlines the learning and implementation path using LangGraph, from
 3.2.2. [Runtime Overview](https://langchain-ai.github.io/langgraph/concepts/pregel/)  
 3.2.3. [Using Graph API](https://langchain-ai.github.io/langgraph/how-tos/graph-api/)
 
-### 3.3 Streaming & Persistence
+### 3.3 Streaming
 
 3.3.1. [Streaming Overview](https://langchain-ai.github.io/langgraph/concepts/streaming/)  
 3.3.2. [Stream Outputs](https://langchain-ai.github.io/langgraph/how-tos/streaming/)  
-3.3.3. [Persistence](https://langchain-ai.github.io/langgraph/concepts/persistence/)  
-3.3.4. [Durable Execution](https://langchain-ai.github.io/langgraph/concepts/durable_execution/)  
-3.3.5. [Add Persistence](https://langchain-ai.github.io/langgraph/how-tos/persistence/)
 
-### 3.4 Memory
+### 3.4 Persistence
 
-3.4.1. [Memory Overview](https://langchain-ai.github.io/langgraph/concepts/memory/)  
-3.4.2. [Manage Memory](https://langchain-ai.github.io/langgraph/how-tos/memory/)
+3.4.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/persistence/)  
+3.4.2. [Durable Execution](https://langchain-ai.github.io/langgraph/concepts/durable_execution/)  
+3.4.3. [Add Persistence](https://langchain-ai.github.io/langgraph/how-tos/persistence/)
 
----
+### 3.5 Memory
 
-## 4. 🧩 Platform & Integration Topics
+3.5.1. [Memory Overview](https://langchain-ai.github.io/langgraph/concepts/memory/)  
+3.5.2. [Manage Memory](https://langchain-ai.github.io/langgraph/how-tos/memory/)
 
-- Platform Overview  
-- Assistants / Threads / Runs  
-- Authentication & Access Control  
-- Webhooks  
-- Cron Jobs  
-- Server Customization  
-- Double-texting  
-- MCP Details  
+### 3.6 Human-in-the-loop
+
+3.6.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/human_in_the_loop/)
+3.6.2. [Add human-in-the-loop](https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/add-human-in-the-loop/)
+
+### 3.7 Breakpoints
+
+3.7.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/breakpoints/)
+3.7.2. [Use breakpoints](https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/breakpoints/)
+
+### 3.8 Time travel
+
+3.8.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/time-travel/)
+3.8.2. [Use time travel](https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/time-travel/)
+
+### 3.9 Tools
+
+3.9.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/tools/)
+3.9.2. [Use tools](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/)
+
+### 3.10 Subgraph
+
+3.10.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/subgraphs/)
+3.10.2. [Use subgraphs](https://langchain-ai.github.io/langgraph/how-tos/subgraph/)
+
+### 3.11 Multi Agent
+
+3.11.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/multi_agent/)
+3.11.2. [Build multi-agent systems](https://langchain-ai.github.io/langgraph/how-tos/multi_agent/)
+
+### 3.12 Functional AP
+
+3.11.1. [Overview](https://langchain-ai.github.io/langgraph/concepts/functional_api/)
+3.11.2. [Build multi-agent systems](https://langchain-ai.github.io/langgraph/how-tos/use-functional-api/)
 
 (*To be expanded with links as the documentation evolves.*)
 
