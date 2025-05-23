@@ -6,7 +6,7 @@ This roadmap outlines the learning and implementation path using LangGraph, from
 
 ## 1. 🧱 Basics
 
-- 1.1. [Creating a chatbot](https://langchain-ai.github.io/langgraph/tutorials/get-started/1-build-basic-chatbot/#7-run-the-chatbot)  
+- 1.1. [Creating a chatbot](https://langchain-ai.github.io/langgraph/tutorials/get-started/1-build-basic-chatbot/#7-run-the-chatbot)
 - 1.2. [Adding tools](https://langchain-ai.github.io/langgraph/tutorials/get-started/2-add-tools/)  
 - 1.3. [Adding memory](https://langchain-ai.github.io/langgraph/tutorials/get-started/3-add-memory/)  
 - 1.4. [Human-in-the-loop](https://langchain-ai.github.io/langgraph/tutorials/get-started/4-human-in-the-loop/)  
