@@ -8,7 +8,7 @@ from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START
 from langgraph.graph.message import add_messages
 
-from examples.utils.chat import interact_with_graph
+from examples.utils.stream import interact_with_graph
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]

@@ -9,7 +9,7 @@ from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain.chat_models import init_chat_model
 
-from examples.utils.chat import interact_with_graph
+from examples.utils.stream import interact_with_graph
 
 load_dotenv()
 LLM_MODEL=getenv('LLM_MODEL')
