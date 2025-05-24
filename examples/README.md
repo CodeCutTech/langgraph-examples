@@ -12,7 +12,6 @@ This roadmap outlines the learning and implementation path using LangGraph, from
 - 1.4. [Human-in-the-loop](https://langchain-ai.github.io/langgraph/tutorials/get-started/4-human-in-the-loop/)  
 - 1.5. [Customize state](https://langchain-ai.github.io/langgraph/tutorials/get-started/5-customize-state/)  
 - 1.6. [Time travel](https://langchain-ai.github.io/langgraph/tutorials/get-started/6-time-travel/)  
-- 1.7. [Deployment](https://langchain-ai.github.io/langgraph/tutorials/deployment/)  
 
 ---
 
@@ -28,7 +27,6 @@ This roadmap outlines the learning and implementation path using LangGraph, from
 - 2.8. [Agents with humans in the loop](https://langchain-ai.github.io/langgraph/agents/human-in-the-loop/)  
 - 2.9. [Multi-agent](https://langchain-ai.github.io/langgraph/agents/multi-agent/)  
 - 2.10. [Evals](https://langchain-ai.github.io/langgraph/agents/evals/)  
-- 2.11. [Deploy an agent yourself](https://langchain-ai.github.io/langgraph/agents/deployment/)  
 
 ---
 
