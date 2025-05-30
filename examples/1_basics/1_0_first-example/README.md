@@ -121,20 +121,31 @@ You can stream the graph’s execution step-by-step:
 
 ```python
 if __name__ == "__main__":
-    for step in graph.stream({}, {"recursion_limit": 5}):
+    user_input = "Provide Jane's tickets"
+    # Initialize messages as a conversation list
+    initial_state = {"messages": [{"role": "user", "content": user_input}]}
+    
+    for step in graph.stream(initial_state, {"recursion_limit": 5}):
         print("--- step ---")
-        print(step)
+        # Pretty-print the latest system message and structured data
+        messages = step.get("messages", [])
+        if messages:
+            print(f"Last system message: {messages[-1]}")
+        # Also print any structured outputs added at this step
+        for key in ["profile", "feedback", "tickets"]:
+            if key in step:
+                print(f"{key.capitalize()} data: {step[key]}")
 ```
 
 Sample output:
 
 ```
 --- step ---
-{'profile': Profile(id='123', name='Jane', segment='premium')}
+Profile data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}], 'profile': Profile(id='123', name='Jane', segment='premium')}
 --- step ---
-{'profile': ..., 'feedback': Feedback(...)}
+Feedback data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}, {'role': 'system', 'content': 'Feedback notes: 2 comments'}], 'feedback': Feedback(customer_id='123', comments=['Great product!', 'Support was slow.'])}
 --- step ---
-{'profile': ..., 'feedback': ..., 'tickets': [...]}
+Tickets data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}, {'role': 'system', 'content': 'Feedback notes: 2 comments'}, {'role': 'system', 'content': 'Found 1 open tickets'}], 'tickets': [Ticket(id='t1', status='open', issue='Login failed')]}
 ```
 
 At each step, you get a full snapshot of the accumulated state—perfect for debugging or introspecting complex flows.
