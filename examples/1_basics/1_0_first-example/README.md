@@ -96,7 +96,8 @@ You could enforce this in LangGraph, but even using plain dicts, it's helpful to
 Now let’s wire up the workflow using LangGraph:
 
 ```python
-from langgraph.graph import StateGraph
+from langgraph.graph import StateGraph, MessagesState, START, END
+
 
 builder = StateGraph(dict)  # dict or State, depending on how strict you want to be
 
@@ -104,9 +105,10 @@ builder.add_node("profile", get_profile)
 builder.add_node("feedback", get_feedback)
 builder.add_node("tickets", get_tickets)
 
-builder.set_entry_point("profile")
+builder.add_edge(START, "profile")
 builder.add_edge("profile", "feedback")
 builder.add_edge("feedback", "tickets")
+builder.add_edge("tickets", END)
 
 graph = builder.compile()
 ```
@@ -121,10 +123,6 @@ You can stream the graph’s execution step-by-step:
 
 ```python
 if __name__ == "__main__":
-    user_input = "Provide Jane's tickets"
-    # Initialize messages as a conversation list
-    initial_state = {"messages": [{"role": "user", "content": user_input}]}
-    
     for step in graph.stream(initial_state, {"recursion_limit": 5}):
         print("--- step ---")
         # Pretty-print the latest system message and structured data
@@ -141,11 +139,11 @@ Sample output:
 
 ```
 --- step ---
-Profile data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}], 'profile': Profile(id='123', name='Jane', segment='premium')}
+Profile data: {'messages': [HumanMessage(content="Provide Jane's tickets", additional_kwargs={}, response_metadata={}, id='9235e1eb-82a2-4f92-b50e-5fb8916f4389'), {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}]}
 --- step ---
-Feedback data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}, {'role': 'system', 'content': 'Feedback notes: 2 comments'}], 'feedback': Feedback(customer_id='123', comments=['Great product!', 'Support was slow.'])}
+Feedback data: {'messages': [HumanMessage(content="Provide Jane's tickets", additional_kwargs={}, response_metadata={}, id='9235e1eb-82a2-4f92-b50e-5fb8916f4389'), SystemMessage(content='Loaded profile: Jane, segment premium', additional_kwargs={}, response_metadata={}, id='0ec6a3f3-8005-4de8-80ca-4781c974d1e3'), SystemMessage(content='Loaded profile: Jane, segment premium', additional_kwargs={}, response_metadata={}, id='02b6b260-173f-4d57-b761-7c348e877fdb'), {'role': 'system', 'content': 'Feedback notes: 2 comments'}]}
 --- step ---
-Tickets data: {'messages': [{'role': 'user', 'content': "Provide Jane's tickets"}, {'role': 'system', 'content': 'Loaded profile: Jane, segment premium'}, {'role': 'system', 'content': 'Feedback notes: 2 comments'}, {'role': 'system', 'content': 'Found 1 open tickets'}], 'tickets': [Ticket(id='t1', status='open', issue='Login failed')]}
+Tickets data: {'messages': [HumanMessage(content="Provide Jane's tickets", additional_kwargs={}, response_metadata={}, id='9235e1eb-82a2-4f92-b50e-5fb8916f4389'), SystemMessage(content='Loaded profile: Jane, segment premium', additional_kwargs={}, response_metadata={}, id='0ec6a3f3-8005-4de8-80ca-4781c974d1e3'), SystemMessage(content='Loaded profile: Jane, segment premium', additional_kwargs={}, response_metadata={}, id='02b6b260-173f-4d57-b761-7c348e877fdb'), SystemMessage(content='Feedback notes: 2 comments', additional_kwargs={}, response_metadata={}, id='a063d2fd-0726-4710-acc3-5962683382f2'), SystemMessage(content='Feedback notes: 2 comments', additional_kwargs={}, response_metadata={}, id='635cecd6-1e4d-440c-87b4-bef22812037a'), {'role': 'system', 'content': 'Found 1 open tickets'}]}
 ```
 
 At each step, you get a full snapshot of the accumulated state—perfect for debugging or introspecting complex flows.
@@ -171,10 +169,10 @@ Output (in Mermaid syntax):
 
 ```
 graph LR
-  profile --> feedback --> tickets
+  __start__ --> profile --> feedback --> tickets --> __end__
 ```
 
-A clear trail. Linear now—but extensible.
+A clear trail. Linear now — but extensible.
 
 ---
 
