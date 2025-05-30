@@ -21,7 +21,7 @@ Suppose we want an assistant that reviews a customer’s history:
 * Check support tickets
 * Summarize it all
 
-This isn’t a strict linear pipeline—it might skip steps, retry them, or use early exits. Instead of forcing it into a rigid sequence, we’ll build a **graph** of steps that share evolving context.
+Although this is a strict linear pipeline, it might skip steps, retry them, or use early exits. Instead of forcing it into a rigid sequence, we may build a **graph** of steps that share evolving context. On this post, however, we will keep the linear sequence for the educational purpose. 
 
 ---
 
